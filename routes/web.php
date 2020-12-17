@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//访问到pages控制器的root方法
+Route::get('/',[PagesController::class,'root'])->name('root');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+
