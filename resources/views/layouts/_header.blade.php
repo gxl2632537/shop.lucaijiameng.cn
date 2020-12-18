@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="logo">
-                        <a href="index.html">
-                            <img alt="{{env('APP_NAME')}}" src="assets/img/logo/logo.png" style="width: 152px;">
+                        <a href="/">
+                            <img alt="{{env('APP_NAME')}}" src="/assets/img/logo/logo.png" style="width: 152px;">
                         </a>
                     </div>
                 </div>
@@ -15,7 +15,7 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li class="top-hover"><a href="index.html">首页</a>
+                                    <li class="top-hover"><a href="/">首页</a>
                                     </li>
                                     <li><a href="">公司简介</a></li>
                                     <li class="mega-menu-position top-hover"><a href="#">在线购物</a>
@@ -47,15 +47,26 @@
                                 <li style="float: left;"><a href="{{route('login')}}" style="font-size: 12px;font-weight: 600;font-family: &quot;Montserrat&quot;,sans-serif;">登录</a></li>
                                 <li style="float: right; margin-left: 1.2rem;"><a href="{{route('register')}}" style="font-size: 12px;font-weight: 600;font-family: &quot;Montserrat&quot;,sans-serif;">注册</a></li>
                                 @else
-                                    <li style="float: left;">{{Auth::user()->name}}</li>
-                                    <li style="float: right; margin-left: 1.2rem;"> <a href="{{ route('logout') }}"
-                                                                                       onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                            退出登录
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
+                                <img src="/uploads/images/dd6719bd4287d9efd49434c43563a032_v2_.jpg" class="img-responsive img-circle" width="30px" height="30px">
+                            </span>
+                                            {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                                    退出登录
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
                                   @endguest
                             </ul>
                         </div>
