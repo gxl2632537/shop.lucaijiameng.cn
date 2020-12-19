@@ -48,7 +48,7 @@
                                 <li style="float: right; margin-left: 1.2rem;"><a href="{{route('register')}}" style="font-size: 12px;font-weight: 600;font-family: &quot;Montserrat&quot;,sans-serif;">注册</a></li>
                                 @else
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
                                 <img src="/uploads/images/dd6719bd4287d9efd49434c43563a032_v2_.jpg" class="img-responsive img-circle" width="30px" height="30px">
                             </span>
