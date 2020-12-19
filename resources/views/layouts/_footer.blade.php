@@ -1,5 +1,5 @@
 <!-- Footer style Start -->
-<footer class="footer-area pt-75 gray-bg-3" style="  position: absolute;bottom: 0;width: 100% ;">
+<footer class="footer-area  gray-bg-3" style="  position: relative;bottom: 0;width: 100% ;">
     <div class="footer-top gray-bg-3 pb-35">
         <div class="container">
             <div class="row">
