@@ -7,6 +7,7 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    //不记录日志
     /**
      * A list of the exception types that are not reported.
      *
@@ -14,6 +15,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         //
+        InvalidRequestException::class
     ];
 
     /**
