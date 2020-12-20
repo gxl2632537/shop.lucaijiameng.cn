@@ -35,7 +35,9 @@
     </div>
 
 <script src="{{mix('js/app.js')}}" ></script>
-<!-- all js here -->
+ @yield('scriptsAfterJs')
+
+    <!-- all js here -->
 <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
 <script src="/assets/js/popper.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>

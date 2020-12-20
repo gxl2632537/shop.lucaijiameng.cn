@@ -15,7 +15,7 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                  <li class="top-hover"><a href="/">首页5</a>
+                                  <li class="top-hover"><a href="/">首页</a>
 
                                     </li>
                                     <li><a href="">公司简介</a></li>
