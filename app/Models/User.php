@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use Dcat\Admin\Traits\HasDateTimeFormatter;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    use SoftDeletes;
     use HasFactory, Notifiable;
-
+    use HasDateTimeFormatter;
     /**
      * The attributes that are mass assignable.
      *

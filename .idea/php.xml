@@ -117,6 +117,8 @@
       <path value="$PROJECT_DIR$/vendor/spatie/eloquent-sortable" />
       <path value="$PROJECT_DIR$/vendor/dcat/laravel-admin" />
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/dcat/easy-excel" />
+      <path value="$PROJECT_DIR$/vendor/box/spout" />
     </include_path>
   </component>
   <component name="PhpUnit">
