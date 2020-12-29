@@ -18,7 +18,7 @@ use App\Http\Controllers\ProductsController;
 //访问到pages控制器的root方法
 Route::get('/',[PagesController::class,'root'])->name('root');
 Route::get('products',[ProductsController::class,'index'])->name('products.index');
-Route::get('products/{product}',[ProductsController::class,'show'])->name('products.show');
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
@@ -33,6 +33,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('user_addresses/{user_address}',[UserAddressesController::class,'edit'])->name('user_addresses.edit');
         Route::put('user_addresses/{user_address}',[UserAddressesController::class,'update'])->name('user_addresses.update');
         Route::delete('user_addresses/{user_address}',[UserAddressesController::class,'destroy'])->name('user_addresses.destroy');
+        Route::post('products/{product}/favorite',[ProductsController::class,'favor'])->name('products.favor');
+        Route::delete('products/{product}/favorite',[ProductsController::class,'disfavor'])->name('products.disfavor');
+        Route::get('products/favorites',[ProductsController::class,'favorites'])->name('products.favorites');
+        Route::get('products/{product}',[ProductsController::class,'show'])->name('products.show');
     });
 
 });
