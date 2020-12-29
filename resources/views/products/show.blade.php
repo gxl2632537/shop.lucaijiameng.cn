@@ -1,0 +1,193 @@
+@extends('layouts.app')
+@section('title', $product->title)
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body product-info">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="cover" src="{{ $product->image_url }}" alt="">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="title">{{ $product->title }}</div>
+                            <div class="price"><label>价格</label><em>￥</em><span>{{ $product->price }}</span></div>
+                            <div class="sales_and_reviews">
+                                <div class="sold_count">累计销量 <span class="count">{{ $product->sold_count }}</span></div>
+                                <div class="review_count">累计评价 <span class="count">{{ $product->review_count }}</span></div>
+                                <div class="rating" title="评分 {{ $product->rating }}">评分 <span class="count">
+                                        {{floor($product->rating)}}
+{{--                                        {{ str_repeat('★', floor($product->rating)) }}--}}
+{{--                                        {{ str_repeat('☆', 5 - floor($product->rating)) }}--}}
+                                    </span></div>
+                            </div>
+                            <div class="skus">
+                                <label>选择</label>
+                                <div class="btn-group" data-toggle="buttons">
+                                    @foreach($product->skus as $sku)
+                                        <label
+                                                class="btn btn-default sku-btn"
+                                                data-price="{{ $sku->price }}"
+                                                data-stock="{{ $sku->stock }}"
+                                                data-toggle="tooltip"
+                                                title="{{ $sku->description }}"
+                                                data-placement="bottom">
+                                            <input type="radio" name="skus" autocomplete="off" value="{{ $sku->id }}"> {{ $sku->title }}
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="cart_amount"><label>数量</label><input type="text" class="form-control input-sm" value="1"><span>件</span><span class="stock"></span></div>
+                            <div class="buttons">
+                                <button class="btn btn-success btn-favor">❤ 收藏</button>
+                                <button class="btn btn-primary btn-add-to-cart">加入购物车</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-detail">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#product-detail-tab" aria-controls="product-detail-tab" role="tab" data-toggle="tab">商品详情</a></li>
+                            <li role="presentation"><a href="#product-reviews-tab" aria-controls="product-reviews-tab" role="tab" data-toggle="tab">用户评价</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="product-detail-tab">
+                                {!! $product->description !!}
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="product-reviews-tab">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('extends')
+    <style>
+    .products-show-page .cover {
+    width: 100%;
+    border: solid 1px #eee;
+    padding: 30px 0;
+    }
+    .products-show-page .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+    .products-show-page .price {
+    line-height: 30px;
+    background-color: #e9e9e9;
+    color: red;
+    font-size: 20px;
+    }
+    .products-show-page .price label {
+    width: 69px;
+    color: #999;
+    font-size: 12px;
+    padding-left: 10px;
+    }
+    .products-show-page .price em {
+    font-family: Arial;
+    font-size: 18px;
+    font-style: normal;
+    text-decoration: none;
+    vertical-align: middle;
+    }
+    .products-show-page .price span {
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bolder;
+    text-decoration: none;
+    vertical-align: middle;
+    }
+    .products-show-page .sales_and_reviews {
+    border-top: 1px dotted #c9c9c9;
+    border-bottom: 1px dotted #c9c9c9;
+    margin: 5px 0 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    }
+    .products-show-page .sales_and_reviews > div {
+    width: 33%;
+    text-align: center;
+    padding: 5px;
+    }
+    .products-show-page .sales_and_reviews > div.sold_count, .products-show-page .sales_and_reviews > div.review_count {
+    border-right: 1px dotted #c9c9c9;
+    }
+    .products-show-page .sales_and_reviews > div .count {
+    color: #FF0036;
+    font-weight: 700;
+    }
+    .products-show-page .skus > label {
+    color: #999;
+    font-size: 12px;
+    padding: 0 10px 0 10px;
+    }
+    .products-show-page .skus .btn-group {
+    margin-left: -10px;
+    }
+    .products-show-page .skus .btn-group label {
+    border-radius: 0 !important;
+    margin: 1px 5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    }
+    .products-show-page .skus .btn-group .btn-default.active, .products-show-page .skus .btn-group .btn-default:hover {
+    margin-top: 0px !important;
+    background: #fff !important;
+    border: 2px solid red !important;
+    }
+    .products-show-page .skus .btn-group .btn.focus {
+    outline: 0 !important;
+    }
+    .products-show-page .cart_amount {
+    font-size: 12px;
+    color: #888;
+    margin: 10px 0 20px;
+    }
+    .products-show-page .cart_amount label {
+    color: #999;
+    font-size: 12px;
+    padding: 0 10px 0 10px;
+    }
+    .products-show-page .cart_amount input {
+    width: 50px;
+    display: inline-block;
+    border-radius: 0 !important;
+    }
+    .products-show-page .cart_amount span {
+    color: #999;
+    font-size: 12px;
+    padding-left: 10px;
+    }
+    .products-show-page .buttons {
+    padding-left: 44px;
+    }
+    .products-show-page .product-detail {
+    margin: 20px 0;
+    }
+    .products-show-page .product-detail .nav.nav-tabs > li > a {
+    border-radius: 0 !important;
+    }
+    .products-show-page .product-detail .tab-content {
+    border: 1px solid #eee;
+    padding: 20px;
+    }
+    </style>
+@endsection
+
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'});
+            $('.sku-btn').click(function () {
+                $('.product-info .price span').text($(this).data('price'));
+                $('.product-info .stock').text('库存：' + $(this).data('stock') + '件');
+            });
+        });
+    </script>
+@endsection

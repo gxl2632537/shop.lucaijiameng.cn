@@ -18,6 +18,7 @@ use App\Http\Controllers\ProductsController;
 //访问到pages控制器的root方法
 Route::get('/',[PagesController::class,'root'])->name('root');
 Route::get('products',[ProductsController::class,'index'])->name('products.index');
+Route::get('products/{product}',[ProductsController::class,'show'])->name('products.show');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
