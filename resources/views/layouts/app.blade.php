@@ -10,6 +10,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
     <!-- all css here -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <link href="{{mix('css/app.css')}}" rel="stylesheet">
+    @yield('extends')
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">

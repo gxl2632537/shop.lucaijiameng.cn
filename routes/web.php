@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\UserAddressesController;
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,7 @@ use App\Http\Controllers\UserAddressesController;
 */
 //访问到pages控制器的root方法
 Route::get('/',[PagesController::class,'root'])->name('root');
-
+Route::get('products',[ProductsController::class,'index'])->name('products.index');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
