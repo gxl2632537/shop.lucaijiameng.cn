@@ -6,6 +6,7 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\UserAddressesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrdersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('cart',[CartController::class,'add'])->name('cart.add');
         Route::get('cart',[CartController::class,'index'])->name('cart.index');
         Route::delete('cart/{sku}',[CartController::class,'remove'])->name('cart.remove');
-
+        Route::post('orders', [OrdersController::class,'store'])->name('orders.store');
     });
 
 });
