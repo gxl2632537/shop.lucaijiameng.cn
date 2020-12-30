@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\UserAddressesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::delete('products/{product}/favorite',[ProductsController::class,'disfavor'])->name('products.disfavor');
         Route::get('products/favorites',[ProductsController::class,'favorites'])->name('products.favorites');
         Route::get('products/{product}',[ProductsController::class,'show'])->name('products.show');
+        Route::post('cart',[CartController::class,'add'])->name('cart.add');
+
     });
 
 });
