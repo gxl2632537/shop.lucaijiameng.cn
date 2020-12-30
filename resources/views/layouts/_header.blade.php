@@ -35,7 +35,7 @@
                             </nav>
                         </div>
                         <div class="header-cart">
-                            <a href="#">
+                            <a href="{{ route('cart.index') }}">
                                 <div class="cart-icon">
                                     <i class="ti-shopping-cart"></i><sup style="color: red;position: relative;top: -1rem;padding: 4px;">1</sup>
                                 </div>
@@ -48,6 +48,7 @@
                                 <li style="float: left;"><a href="{{route('login')}}" style="font-size: 12px;font-weight: 600;font-family: &quot;Montserrat&quot;,sans-serif;">登录</a></li>
                                 <li style="float: right; margin-left: 1.2rem;"><a href="{{route('register')}}" style="font-size: 12px;font-weight: 600;font-family: &quot;Montserrat&quot;,sans-serif;">注册</a></li>
                                 @else
+
                                     <li class="dropdown">
                                         <a href="#" class="" data-toggle="dropdown" role="button" aria-expanded="true">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
